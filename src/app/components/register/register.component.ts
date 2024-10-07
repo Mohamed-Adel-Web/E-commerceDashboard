@@ -40,7 +40,5 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
-  registerSubmit(): void {
-    
-  }
+  registerSubmit(): void {}
 }
