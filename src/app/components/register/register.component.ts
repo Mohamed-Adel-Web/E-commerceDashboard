@@ -9,7 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../cors/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -30,6 +32,10 @@ import { RouterLink } from '@angular/router';
 })
 export class RegisterComponent {
   private _FormBuilder = inject(FormBuilder);
+  private readonly _AuthService = inject(AuthService);
+  private readonly _TokenService = inject(ToastrService);
+  private readonly _Router = inject(Router);
+
   hide = signal(true);
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
@@ -40,5 +46,15 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
-  registerSubmit(): void {}
+  registerSubmit(): void {
+    this._AuthService.setRegisterData(this.registerForm.value).subscribe({
+      next: (res) => {
+        localStorage.setItem('token', res.token);
+        this._TokenService.success(res.message);
+        setTimeout(() => {
+          this._Router.navigate(['/admin']);
+        }, 1000);
+      },
+    });
+  }
 }

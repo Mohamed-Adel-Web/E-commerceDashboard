@@ -1,1 +1,7 @@
-<p>admin-layout works!</p>
+<section class="flex">
+  <app-admin-side-nav [open]="true"></app-admin-side-nav>
+  <main class="w-10/12 ms-auto">
+    <app-admin-nav></app-admin-nav>
+    <router-outlet></router-outlet>
+  </main>
+</section>

@@ -1,0 +1,26 @@
+<aside
+  [ngClass]="{ '-translate-x-[1000px]': !open(), 'translate-x-0': open() }"
+  class="bg-[#262D34] w-2/12 min-h-screen fixed overflow-auto top-0 left-0 p-6 duration-200"
+>
+  <header>
+    <img
+      src="https://techzaa.in/larkon/admin/assets/images/logo-light.png"
+      height="24"
+      width="113"
+      alt=""
+    />
+  </header>
+  <ul class="text-white my-5 space-y-7">
+    @for (link of links; track $index) {
+    <li
+      class="flex items-center gap-3 hover:bg-slate-400 p-2 rounded-md duration-200"
+    >
+      <span class="material-icons"> {{ link.icon }}</span>
+
+      <a routerLink="{{ link.href }}" class="block w-full h-full">{{
+        link.title
+      }}</a>
+    </li>
+    }
+  </ul>
+</aside>

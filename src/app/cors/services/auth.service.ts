@@ -11,4 +11,7 @@ export class AuthService {
   setLoginData(data: object): Observable<any> {
     return this._HttpClient.post(`${environment.baseUrl}/auth/sign-in`, data);
   }
+  setRegisterData(data: object): Observable<any> {
+    return this._HttpClient.post(`${environment.baseUrl}/auth/signup`, data);
+  }
 }
