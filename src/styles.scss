@@ -12,3 +12,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+table {
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: auto !important;
+}

@@ -1,1 +1,30 @@
-<nav class="p-6"><span class="material-icons cursor-pointer"> list </span></nav>
+<nav class="px-10 py-5 flex justify-between bg-slate-300 relative">
+  <span class="material-icons cursor-pointer" (click)="sideNavOpenChange()">
+    list
+  </span>
+  <img
+    class="rounded-full cursor-pointer"
+    src="https://techzaa.in/larkon/admin/assets/images/users/avatar-1.jpg"
+    width="32"
+    alt=""
+    (click)="handleSettingOpen()"
+  />
+</nav>
+@if(settingOpen()){
+<ul
+  class="bg-white rounded-lg w-fit ms-auto me-5 space-y-4 shadow-lg text-sm text-slate-400 font-bold absolute right-0 py-5"
+>
+  <li class="px-5">Welcome Adel</li>
+  <li
+    class="flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-md duration-200 px-5 py-2"
+  >
+    <span class="material-icons"> account_circle </span>profile
+  </li>
+  <li
+    (click)="handleLogout()"
+    class="flex items-center gap-3 cursor-pointer hover:bg-slate-100 rounded-md duration-200 px-5 py-2"
+  >
+    <span class="material-icons"> logout </span>logout
+  </li>
+</ul>
+}

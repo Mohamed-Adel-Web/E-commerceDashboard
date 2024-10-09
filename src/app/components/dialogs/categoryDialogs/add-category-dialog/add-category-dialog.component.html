@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Add New Category</h2>
+<mat-dialog-content>
+  <form [formGroup]="addCategoryForm">
+    <mat-form-field class="name w-full">
+      <mat-label>name</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="name"
+        placeholder="enter category name"
+        class="!w-full"
+      />
+      @if(addCategoryForm.get("name")?.getError("required")){
+      <mat-error>Category name is required</mat-error>
+      }
+    </mat-form-field>
+
+    <label class="block mb-2 text-sm font-medium" for="file_input"
+      >Upload Category Image</label
+    >
+    <input
+      class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-secondary dark:border-gray-600 dark:placeholder-gray-400"
+      id="file_input"
+      formControlName="image"
+      type="file"
+    /></form
+></mat-dialog-content>
+<mat-dialog-actions class="!ms-auto">
+  <button mat-button mat-dialog-close class="!bg-secondary">Cancel</button>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    class="!bg-main !text-white"
+  >
+    Add
+  </button>
+</mat-dialog-actions>

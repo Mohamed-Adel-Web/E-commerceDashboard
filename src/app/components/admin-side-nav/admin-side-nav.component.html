@@ -1,14 +1,17 @@
 <aside
   [ngClass]="{ '-translate-x-[1000px]': !open(), 'translate-x-0': open() }"
-  class="bg-[#262D34] w-2/12 min-h-screen fixed overflow-auto top-0 left-0 p-6 duration-200"
+  class="bg-[#262D34] lg:w-2/12 min-h-screen fixed overflow-auto top-0 left-0 p-6 duration-500 z-10 w-6/12"
 >
-  <header>
+  <header class="flex justify-between items-center">
     <img
       src="https://techzaa.in/larkon/admin/assets/images/logo-light.png"
       height="24"
       width="113"
       alt=""
     />
+    <span class="material-icons text-white cursor-pointer " (click)="closeSideNavFire()">
+      close
+      </span>
   </header>
   <ul class="text-white my-5 space-y-7">
     @for (link of links; track $index) {

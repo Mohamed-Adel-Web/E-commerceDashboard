@@ -1,7 +1,18 @@
 <section class="flex">
-  <app-admin-side-nav [open]="true"></app-admin-side-nav>
-  <main class="w-10/12 ms-auto">
-    <app-admin-nav></app-admin-nav>
-    <router-outlet></router-outlet>
+  <app-admin-side-nav
+    [open]="open()"
+    (closeSideNav)="closeSideNav()"
+  ></app-admin-side-nav>
+  <main
+    [ngClass]="{ 'w-full': !open(), 'w-10/12': open }"
+    class="ms-auto duration-500"
+  >
+    <app-admin-nav
+      [open]="open()"
+      (toggleSideNav)="toggleSideNav()"
+    ></app-admin-nav>
+    <div class="container mx-auto">
+      <router-outlet></router-outlet>
+    </div>
   </main>
 </section>

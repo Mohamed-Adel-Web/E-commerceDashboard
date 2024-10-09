@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class AdminSideNavComponent {
   open = input.required<boolean>();
+  @Output() closeSideNav = new EventEmitter();
 
   links: { title: string; href: string; icon: string }[] = [
     {
@@ -41,4 +42,7 @@ export class AdminSideNavComponent {
       icon: 'inventory',
     },
   ];
+  closeSideNavFire() {
+    this.closeSideNav.emit();
+  }
 }
