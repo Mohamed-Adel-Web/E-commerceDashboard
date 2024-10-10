@@ -28,7 +28,7 @@ export class AdminSideNavComponent {
 
     {
       title: 'Sub Category',
-      href: 'sub-category',
+      href: '/admin/sub-category',
       icon: 'category',
     },
     {

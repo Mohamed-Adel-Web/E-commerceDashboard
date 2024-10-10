@@ -1,5 +1,5 @@
-<h2 mat-dialog-title>Add New Category</h2>
-<form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+<h2 mat-dialog-title>update New Category</h2>
+<form [formGroup]="editCategoryForm" (ngSubmit)="onSubmit()">
   <mat-dialog-content >
     <mat-form-field class="name w-full">
       <mat-label>name</mat-label>
@@ -10,7 +10,7 @@
         placeholder="enter category name"
         class="!w-full"
       />
-      @if(addCategoryForm.get("name")?.getError("required")){
+      @if(editCategoryForm.get("name")?.getError("required")){
       <mat-error>Category name is required</mat-error>
       }
     </mat-form-field>
@@ -24,14 +24,11 @@
       type="file"
       (change)="onFileSelected($event)"
     />
-    @if(addCategoryForm.get("image")?.getError("required")&&addCategoryForm.get("image")?.touched){
-    <mat-error>Image is required</mat-error>
-    }
   </mat-dialog-content>
   <mat-dialog-actions class="dialogAction">
     <button mat-button mat-dialog-close class="cancelButton">Cancel</button>
     <button mat-button cdkFocusInitial type="submit" class="Button">
-      Add
+      update
     </button>
   </mat-dialog-actions>
 </form>

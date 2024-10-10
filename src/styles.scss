@@ -3,6 +3,64 @@
 @tailwind components;
 @tailwind utilities;
 @import "ngx-toastr/toastr";
+@layer components {
+  //tableStyle
+  .addButton {
+    @apply bg-main py-2 px-6 rounded-xl text-xl text-white font-medium;
+  }
+  .editButton {
+    @apply cursor-pointer bg-secondary hover:bg-main hover:text-white duration-300 inline-block p-1  rounded-lg;
+  }
+  .deleteButton {
+    @apply cursor-pointer bg-[#FBC4C4] text-[#EF5F5F] hover:text-white hover:bg-[#EF5F5F] duration-300 inline-block p-1 rounded-lg;
+  }
+  .tableTitleLayout {
+    @apply rounded-lg shadow-lg bg-white my-5 p-3 flex items-center justify-between;
+  }
+  .tableTitle {
+    @apply font-bold text-2xl;
+  }
+  .tableHeader {
+    background-color: theme("colors.secondary") !important;
+    font-weight: bold !important;
+  }
+  .tableRow {
+    font-weight: bold !important;
+    height: 5rem !important;
+    @apply hover:bg-secondary duration-300;
+  }
+  .table {
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: auto !important;
+  }
+  .headerLabel {
+    @apply font-bold;
+  }
+  .fileInput {
+    @apply block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-secondary dark:border-gray-600 dark:placeholder-gray-400;
+  }
+
+  //tableStyle
+  //AddDialog
+
+  .dialogAction {
+    display: flex !important;
+    justify-content: end !important;
+    .Button {
+      background-color: theme("colors.main");
+      color: theme("colors.white") !important;
+    }
+    .cancelButton {
+      background-color: theme("colors.secondary") !important;
+    }
+    .deleteButton {
+      @apply bg-red-500;
+      color: theme("colors.white") !important;
+
+    }
+  }
+}
 
 html,
 body {
@@ -11,9 +69,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-table {
-  border-radius: 10px;
-  overflow: hidden;
-  table-layout: auto !important;
 }

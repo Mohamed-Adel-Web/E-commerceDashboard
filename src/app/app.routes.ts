@@ -49,6 +49,13 @@ export const routes: Routes = [
             (m) => m.CategoryComponent
           ),
       },
+      {
+        path: 'admin/sub-category',
+        loadComponent: () =>
+          import('./components/sub-category/sub-category.component').then(
+            (m) => m.SubCategoryComponent
+          ),
+      },
     ],
   },
 ];
